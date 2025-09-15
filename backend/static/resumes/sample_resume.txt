@@ -1,0 +1,41 @@
+RAHUL SHARMA
+Email: rahul.sharma@example.com | Phone: +91-9876543210 | LinkedIn: linkedin.com/in/rahulsharma
+
+EDUCATION
+Bachelor of Technology in Computer Science and Engineering
+Indian Institute of Technology, Delhi
+CGPA: 8.5/10 | Expected Graduation: May 2024
+
+TECHNICAL SKILLS
+Programming Languages: Python, Java, C++, JavaScript
+Web Technologies: HTML, CSS, React, Node.js, Django
+Databases: MySQL, MongoDB, PostgreSQL
+Data Science: Machine Learning, TensorFlow, Pandas, NumPy
+Tools: Git, Docker, Linux, AWS
+
+EXPERIENCE
+Machine Learning Intern - Tech Solutions Ltd. (Summer 2023)
+- Developed a recommendation system using Python and TensorFlow
+- Achieved 15% improvement in recommendation accuracy
+- Worked on data preprocessing and model training
+
+PROJECTS
+AI Chatbot Project (2023)
+- Built a chatbot using Natural Language Processing
+- Implemented with Python and NLTK library
+- Achieved 90% accuracy in user query understanding
+
+Student Management System (2022)
+- Developed a web application using React and Node.js
+- Features include student registration, attendance tracking
+
+CERTIFICATIONS
+- Machine Learning Specialization (Coursera)
+- Web Development Bootcamp (Udemy)
+
+ACHIEVEMENTS
+- Winner of CodeFest 2023 programming competition
+- Published research paper on AI in IEEE conference
+
+INTERESTS
+Artificial Intelligence, Web Development, Open Source Contribution, Reading
