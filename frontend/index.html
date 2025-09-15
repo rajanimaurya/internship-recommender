@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerMatch - AI Internship Recommender</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-graduation-cap"></i> CareerMatch AI</h1>
+            <p>Find your perfect internship with AI-powered matching</p>
+        </header>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#upload">Upload Resume</a></li>
+                <li><a href="#about">How It Works</a></li>
+                <li><a href="#features">Features</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="upload" class="upload-section">
+                <h2>Upload Your Resume</h2>
+                <div class="upload-options">
+                    <div class="upload-option">
+                        <h3><i class="fas fa-file-upload"></i> File Upload</h3>
+                        <p>Select a file from your device</p>
+                        <div class="file-types">Supported: PDF, DOCX, DOC, TXT, JPG, PNG</div>
+                        <input type="file" id="fileInput" class="file-input" accept=".pdf,.docx,.doc,.txt,.jpg,.jpeg,.png">
+                        <button class="browse-btn" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-folder-open"></i> Browse Files
+                        </button>
+                    </div>
+                    
+                    <div class="upload-option">
+                        <h3><i class="fas fa-camera"></i> Camera Capture</h3>
+                        <p>Take a photo of your resume</p>
+                        <button class="camera-btn" id="cameraBtn">
+                            <i class="fas fa-camera"></i> Open Camera
+                        </button>
+                        <div class="camera-feed hidden" id="cameraFeed">
+                            <video id="video" autoplay playsinline></video>
+                            <button class="capture-btn" id="captureBtn">
+                                <i class="fas fa-camera"></i> Capture
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drag-drop-area" id="dropZone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drag & Drop Files Here</h3>
+                    <p>Supported formats: PDF, DOCX, DOC, TXT, JPG, PNG</p>
+                </div>
+
+                <div class="selected-file" id="selectedFileContainer">
+                    <h4>Selected File:</h4>
+                    <p id="selectedFileName">No file selected</p>
+                </div>
+
+                <button class="analyze-btn" id="analyzeBtn">
+                    <i class="fas fa-magic"></i> Analyze Resume
+                </button>
+            </section>
+
+            <div id="loading" class="loading hidden">
+                <div class="loading-spinner"></div>
+                <p>Analyzing your resume with AI...</p>
+            </div>
+
+            <section id="results" class="results-section hidden">
+                <h2>Your Career Matches</h2>
+                <div class="profile-summary" id="profileSummary">
+                    <!-- Filled by JavaScript -->
+                </div>
+                <div class="recommendations" id="recommendations">
+                    <!-- Filled by JavaScript -->
+                </div>
+            </section>
+
+            <section id="about" class="about-section">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Upload Your Resume</h3>
+                        <p>Use any method: file upload, camera capture, or drag and drop</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>AI Analysis</h3>
+                        <p>Our system extracts your skills, education, and experience</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Get Matches</h3>
+                        <p>Receive personalized internship recommendations</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Apply</h3>
+                        <p>Connect directly with opportunities that match your profile</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="features" class="features-section">
+                <h2>Why Choose CareerMatch?</h2>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI-Powered Matching</h3>
+                        <p>Advanced algorithms find the perfect internship matches based on your skills</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-lock"></i>
+                        <h3>Secure & Private</h3>
+                        <p>Your data is encrypted and never shared with third parties</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Instant Results</h3>
+                        <p>Get personalized recommendations in seconds, not days</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile Friendly</h3>
+                        <p>Upload resumes directly from your phone's camera</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 CareerMatch AI. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
