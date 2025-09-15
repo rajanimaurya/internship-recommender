@@ -3,143 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareerMatch - AI Internship Recommender</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Government Internship Portal</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-graduation-cap"></i> CareerMatch AI</h1>
-            <p>Find your perfect internship with AI-powered matching</p>
-        </header>
-        
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#upload">Upload Resume</a></li>
-                <li><a href="#about">How It Works</a></li>
-                <li><a href="#features">Features</a></li>
-            </ul>
-        </nav>
-
-        <main>
-            <section id="upload" class="upload-section">
-                <h2>Upload Your Resume</h2>
-                <div class="upload-options">
-                    <div class="upload-option">
-                        <h3><i class="fas fa-file-upload"></i> File Upload</h3>
-                        <p>Select a file from your device</p>
-                        <div class="file-types">Supported: PDF, DOCX, DOC, TXT, JPG, PNG</div>
-                        <input type="file" id="fileInput" class="file-input" accept=".pdf,.docx,.doc,.txt,.jpg,.jpeg,.png">
-                        <button class="browse-btn" onclick="document.getElementById('fileInput').click()">
-                            <i class="fas fa-folder-open"></i> Browse Files
-                        </button>
-                    </div>
-                    
-                    <div class="upload-option">
-                        <h3><i class="fas fa-camera"></i> Camera Capture</h3>
-                        <p>Take a photo of your resume</p>
-                        <button class="camera-btn" id="cameraBtn">
-                            <i class="fas fa-camera"></i> Open Camera
-                        </button>
-                        <div class="camera-feed hidden" id="cameraFeed">
-                            <video id="video" autoplay playsinline></video>
-                            <button class="capture-btn" id="captureBtn">
-                                <i class="fas fa-camera"></i> Capture
-                            </button>
-                        </div>
-                    </div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h1>GovInternships</h1>
                 </div>
-
-                <div class="drag-drop-area" id="dropZone">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <h3>Drag & Drop Files Here</h3>
-                    <p>Supported formats: PDF, DOCX, DOC, TXT, JPG, PNG</p>
+                
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Internships</a></li>
+                        <li><a href="#">How it Works</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" id="loginBtn">Login</button>
+                    <button class="btn btn-primary" id="registerBtn">Register</button>
                 </div>
-
-                <div class="selected-file" id="selectedFileContainer">
-                    <h4>Selected File:</h4>
-                    <p id="selectedFileName">No file selected</p>
-                </div>
-
-                <button class="analyze-btn" id="analyzeBtn">
-                    <i class="fas fa-magic"></i> Analyze Resume
-                </button>
-            </section>
-
-            <div id="loading" class="loading hidden">
-                <div class="loading-spinner"></div>
-                <p>Analyzing your resume with AI...</p>
             </div>
-
-            <section id="results" class="results-section hidden">
-                <h2>Your Career Matches</h2>
-                <div class="profile-summary" id="profileSummary">
-                    <!-- Filled by JavaScript -->
-                </div>
-                <div class="recommendations" id="recommendations">
-                    <!-- Filled by JavaScript -->
-                </div>
-            </section>
-
-            <section id="about" class="about-section">
-                <h2>How It Works</h2>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Upload Your Resume</h3>
-                        <p>Use any method: file upload, camera capture, or drag and drop</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>AI Analysis</h3>
-                        <p>Our system extracts your skills, education, and experience</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Get Matches</h3>
-                        <p>Receive personalized internship recommendations</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Apply</h3>
-                        <p>Connect directly with opportunities that match your profile</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="features" class="features-section">
-                <h2>Why Choose CareerMatch?</h2>
-                <div class="features">
-                    <div class="feature">
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Find Your Perfect Government Internship</h2>
+            <p>Powered by AI matching to connect your skills and preferences with the right opportunities</p>
+            
+            <div class="search-box">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search by role, department, or skills...">
+                <button class="search-btn" id="searchBtn">Search</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>How We Help You</h2>
+                <p>Our AI-powered platform matches your unique profile with government internship opportunities</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-robot"></i>
-                        <h3>AI-Powered Matching</h3>
-                        <p>Advanced algorithms find the perfect internship matches based on your skills</p>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-lock"></i>
-                        <h3>Secure & Private</h3>
-                        <p>Your data is encrypted and never shared with third parties</p>
+                    <h3>AI Matching</h3>
+                    <p>Our algorithm analyzes your skills and preferences to find the most relevant internships</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-bolt"></i>
-                        <h3>Instant Results</h3>
-                        <p>Get personalized recommendations in seconds, not days</p>
+                    <h3>Government Partnerships</h3>
+                    <p>Direct access to internships from various government departments and agencies</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h3>Mobile Friendly</h3>
-                        <p>Upload resumes directly from your phone's camera</p>
+                    <h3>Career Growth</h3>
+                    <p>Kickstart your career with meaningful government sector experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Get matched with your ideal government internship in just a few steps</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Create Profile</h3>
+                    <p>Register and build your profile with skills, education, and preferences</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Analysis</h3>
+                    <p>Our system analyzes your profile against available opportunities</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Matched</h3>
+                    <p>Receive personalized internship recommendations</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Apply</h3>
+                    <p>Apply directly to the internships that match your profile</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- API Demo Section -->
+    <section class="api-demo">
+        <div class="container">
+            <div class="section-title">
+                <h2>API Integration Demo</h2>
+                <p>See how our frontend connects with backend APIs</p>
+            </div>
+            
+            <div class="demo-container">
+                <div class="demo-card">
+                    <h3>Test Login API</h3>
+                    <div class="input-group">
+                        <input type="email" id="loginEmail" placeholder="Enter email">
+                        <input type="password" id="loginPassword" placeholder="Enter password">
+                    </div>
+                    <button class="btn btn-primary" id="testLoginBtn">Test Login</button>
+                    <div class="api-response" id="loginResponse"></div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Test Internships API</h3>
+                    <button class="btn btn-primary" id="loadInternshipsBtn">Load Internships</button>
+                    <div class="api-response" id="internshipsResponse"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GovInternships</h3>
+                    <p>Connecting talented individuals with government internship opportunities through AI-powered matching.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2023 CareerMatch AI. All rights reserved.</p>
-        </footer>
-    </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Internships</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Tips for Applicants</a></li>
+                        <li><a href="#">Government Departments</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@govinternships.in</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Government Building, New Delhi</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 GovInternships. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
