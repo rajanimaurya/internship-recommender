@@ -1,186 +1,94 @@
-// API Base URL - Backend team se yeh URL milna chahiye
-const API_BASE_URL = 'https://your-backend-api.com/api';
+// Basic API demo functionality
 
-// DOM Elements
-const loginBtn = document.getElementById('loginBtn');
-const registerBtn = document.getElementById('registerBtn');
-const searchBtn = document.getElementById('searchBtn');
-const searchInput = document.getElementById('searchInput');
-const testLoginBtn = document.getElementById('testLoginBtn');
-const loadInternshipsBtn = document.getElementById('loadInternshipsBtn');
-const loginResponse = document.getElementById('loginResponse');
-const internshipsResponse = document.getElementById('internshipsResponse');
-
-// Event Listeners
-document.addEventListener('DOMContentLoaded', function() {
-    // Auth buttons
-    loginBtn.addEventListener('click', handleLoginClick);
-    registerBtn.addEventListener('click', handleRegisterClick);
-    
-    // Search functionality
-    searchBtn.addEventListener('click', handleSearch);
-    searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            handleSearch();
-        }
-    });
-    
-    // API demo buttons
-    testLoginBtn.addEventListener('click', testLoginAPI);
-    loadInternshipsBtn.addEventListener('click', loadInternshipsAPI);
-});
-
-// Function to handle login click
-function handleLoginClick() {
-    alert('Login modal would open here.');
-    // In a real application, this would open a login modal
-}
-
-// Function to handle register click
-function handleRegisterClick() {
-    alert('Registration page would open here.');
-    // In a real application, this would redirect to registration page
-}
-
-// Function to handle search
-function handleSearch() {
-    const query = searchInput.value.trim();
-    if (query !== '') {
-        // In a real application, this would call the search API
-        alert('Searching for: ' + query);
-        
-        // Example API call (commented out for now)
-        // searchInternships(query);
-    } else {
-        alert('Please enter something to search.');
-    }
-}
-
-// Function to test login API
-async function testLoginAPI() {
+// Login test
+document.getElementById('testLoginBtn').addEventListener('click', function() {
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
     
     if (!email || !password) {
-        loginResponse.textContent = 'Please enter both email and password';
+        document.getElementById('loginResponse').innerHTML = '<p style="color: #ff6b6b;">Please enter both email and password</p>';
         return;
     }
     
-    loginResponse.textContent = 'Calling login API...';
+    document.getElementById('loginResponse').innerHTML = '<p>Simulating login API call...</p>';
     
-    try {
-        // This is a mock API call - replace with actual API endpoint
-        const response = await fetch(`${API_BASE_URL}/auth/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
-        });
-        
-        const data = await response.json();
-        loginResponse.textContent = JSON.stringify(data, null, 2);
-    } catch (error) {
-        loginResponse.textContent = 'Error: ' + error.message;
-        
-        // For demo purposes, show mock response
-        setTimeout(() => {
-            loginResponse.textContent = JSON.stringify({
-                success: true,
-                message: 'Login successful',
-                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
-                user: {
-                    id: 123,
-                    name: 'Demo User',
-                    email: email
-                }
-            }, null, 2);
-        }, 1000);
-    }
-}
+    // Simulate API call
+    setTimeout(() => {
+        document.getElementById('loginResponse').innerHTML = `
+            <p style="color: #00f5d4;">Login successful!</p>
+            <p>Email: ${email}</p>
+            <p>Redirecting to dashboard...</p>
+        `;
+    }, 1500);
+});
 
-// Function to load internships API
-async function loadInternshipsAPI() {
-    internshipsResponse.textContent = 'Loading internships...';
+// Load internships demo
+document.getElementById('loadInternshipsBtn').addEventListener('click', function() {
+    document.getElementById('internshipsResponse').innerHTML = '<p>Loading internships data...</p>';
     
-    try {
-        // This is a mock API call - replace with actual API endpoint
-        const response = await fetch(`${API_BASE_URL}/internships`);
-        const data = await response.json();
-        internshipsResponse.textContent = JSON.stringify(data, null, 2);
-    } catch (error) {
-        internshipsResponse.textContent = 'Error: ' + error.message;
-        
-        // For demo purposes, show mock response
-        setTimeout(() => {
-            internshipsResponse.textContent = JSON.stringify({
-                success: true,
-                count: 3,
-                internships: [
-                    {
-                        id: 1,
-                        title: 'Software Development Intern',
-                        department: 'Ministry of Electronics and IT',
-                        location: 'New Delhi',
-                        duration: '6 months',
-                        skills: ['JavaScript', 'Python', 'React'],
-                        match_score: 92
-                    },
-                    {
-                        id: 2,
-                        title: 'Data Analysis Intern',
-                        department: 'NITI Aayog',
-                        location: 'Remote',
-                        duration: '3 months',
-                        skills: ['Python', 'SQL', 'Data Visualization'],
-                        match_score: 87
-                    },
-                    {
-                        id: 3,
-                        title: 'Policy Research Intern',
-                        department: 'Ministry of Education',
-                        location: 'New Delhi',
-                        duration: '4 months',
-                        skills: ['Research', 'Writing', 'Analysis'],
-                        match_score: 78
-                    }
-                ]
-            }, null, 2);
-        }, 1000);
+    // Simulate API call
+    setTimeout(() => {
+        document.getElementById('internshipsResponse').innerHTML = `
+            <h4>Available Internships:</h4>
+            <ul>
+                <li>Data Analyst - Ministry of Statistics</li>
+                <li>Policy Research Intern - NITI Aayog</li>
+                <li>Digital Marketing - MyGov</li>
+                <li>Software Development - NIC</li>
+            </ul>
+        `;
+    }, 1500);
+});
+
+// Upload resume demo (frontend only, no backend)
+document.getElementById('uploadResumeDemoBtn').addEventListener('click', function() {
+    const fileInput = document.getElementById('resumeFile');
+    const file = fileInput.files[0];
+    const uploadResponse = document.getElementById('uploadResponse');
+
+    if (!file) {
+        uploadResponse.innerHTML = '<p style="color: #ff6b6b;">Please select a file to upload</p>';
+        return;
     }
+
+    uploadResponse.innerHTML = '<p>Uploading...</p>';
+
+    // Simulate upload
+    setTimeout(() => {
+        uploadResponse.innerHTML = `<p style="color: #00f5d4;">${file.name} uploaded successfully (demo)</p>`;
+    }, 1200);
+});
+
+// Add hover stop functionality to marquee (kept for safety if CSS pause isn't enough)
+const marqueeContainer = document.querySelector('.marquee-container');
+const marquee = document.querySelector('.marquee');
+
+if (marqueeContainer && marquee) {
+    marqueeContainer.addEventListener('mouseenter', () => {
+        marquee.style.animationPlayState = 'paused';
+    });
+    
+    marqueeContainer.addEventListener('mouseleave', () => {
+        marquee.style.animationPlayState = 'running';
+    });
 }
 
-// Example function to search internships (to be implemented)
-async function searchInternships(query) {
-    try {
-        const response = await fetch(`${API_BASE_URL}/internships/search?q=${encodeURIComponent(query)}`);
-        const data = await response.json();
-        console.log('Search results:', data);
-        // Process and display search results
-    } catch (error) {
-        console.error('Search error:', error);
+// Search button functionality
+document.getElementById('searchBtn').addEventListener('click', function() {
+    const searchTerm = document.getElementById('searchInput').value;
+    if (searchTerm) {
+        alert(`Searching for: ${searchTerm}`);
+        // In a real application, this would trigger an API call
+    } else {
+        alert('Please enter a search term');
     }
-}
+});
 
-// Example function to get user profile (to be implemented)
-async function getUserProfile(token) {
-    try {
-        const response = await fetch(`${API_BASE_URL}/profile`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Profile error:', error);
-    }
-}
+// Login and Register button functionality
+document.getElementById('loginBtn').addEventListener('click', function() {
+    alert('Login dialog would appear here');
+});
 
-// Utility function to display API responses
-function displayResponse(element, data) {
-    element.textContent = JSON.stringify(data, null, 2);
-}
+document.getElementById('registerBtn').addEventListener('click', function() {
+    alert('Registration form would appear here');
+});
