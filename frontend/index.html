@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Government Internship Portal</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome + Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header -->
@@ -38,7 +43,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Find Your Perfect Government Internship</h2>
+            <div class="marquee-container">
+                <h2 class="marquee">Find Your Perfect Government Internship</h2>
+            </div>
             <p>Powered by AI matching to connect your skills and preferences with the right opportunities</p>
             
             <div class="search-box">
@@ -94,25 +101,25 @@
             
             <div class="steps">
                 <div class="step">
-                    <div class="step-number">1</div>
+                    <div class="step-number"></div>
                     <h3>Create Profile</h3>
                     <p>Register and build your profile with skills, education, and preferences</p>
                 </div>
                 
                 <div class="step">
-                    <div class="step-number">2</div>
+                    <div class="step-number"></div>
                     <h3>AI Analysis</h3>
                     <p>Our system analyzes your profile against available opportunities</p>
                 </div>
                 
                 <div class="step">
-                    <div class="step-number">3</div>
+                    <div class="step-number"></div>
                     <h3>Get Matched</h3>
                     <p>Receive personalized internship recommendations</p>
                 </div>
                 
                 <div class="step">
-                    <div class="step-number">4</div>
+                    <div class="step-number"></div>
                     <h3>Apply</h3>
                     <p>Apply directly to the internships that match your profile</p>
                 </div>
@@ -124,13 +131,13 @@
     <section class="api-demo">
         <div class="container">
             <div class="section-title">
-                <h2>API Integration Demo</h2>
-                <p>See how our frontend connects with backend APIs</p>
+                <h2>Upload Your Resume & Get Matched</h2>
+                <p>Easily upload your resume, log in to your account, and explore personalized government internship opportunities tailored to your skills and interests.</p>
             </div>
             
             <div class="demo-container">
                 <div class="demo-card">
-                    <h3>Test Login API</h3>
+                    <h3> Login </h3>
                     <div class="input-group">
                         <input type="email" id="loginEmail" placeholder="Enter email">
                         <input type="password" id="loginPassword" placeholder="Enter password">
@@ -140,14 +147,40 @@
                 </div>
                 
                 <div class="demo-card">
-                    <h3>Test Internships API</h3>
+                    <h3> Internships </h3>
                     <button class="btn btn-primary" id="loadInternshipsBtn">Load Internships</button>
                     <div class="api-response" id="internshipsResponse"></div>
+                </div>
+
+                <div class="demo-card">
+                    <h3>Upload Resume</h3>
+                    <input type="file" id="resumeFile" accept=".pdf,.doc,.docx">
+                    <button class="btn btn-primary" id="uploadResumeDemoBtn">Upload</button>
+                    <div class="api-response" id="uploadResponse"></div>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- User Section -->
+    <section class="user-section" id="userSection" style="display: none;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Profile</h2>
+                <p>Welcome back, <span id="userName"></span></p>
+            </div>
+            
+            <div class="profile-actions">
+                <button class="btn btn-primary" id="uploadResumeBtn">Upload Resume</button>
+                <button class="btn btn-outline" id="getRecommendationsBtn">Get Recommendations</button>
+            </div>
+            
+            <div class="recommendations-container" id="recommendationsContainer">
+                <!-- Recommendations will be loaded here -->
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -200,6 +233,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Main script -->
+    <script src="scripts.js"></script>
 </body>
 </html>
