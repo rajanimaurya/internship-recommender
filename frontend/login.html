@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    body {
+      background: rgb(27, 28, 28);
+      font-family: Arial, sans-serif;
+    }
+    #login {
+      width: 400px;
+      margin: 150px auto;
+      border: 10px solid rgb(27, 28, 28);
+      box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1),
+        -5px -5px 10px rgba(255, 255, 255, 0.1) inset, 5px 5px 10px rgba(0, 0, 0, 0.5) inset,
+        5px 5px 10px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .data {
+      height: 50px;
+      width: 90%;
+      background: rgb(27, 28, 28);
+      color: white;
+      border-radius: 50px;
+      box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1), 5px 5px 10px rgba(0, 0, 0, 0.5);
+      line-height: 50px;
+      margin: 15px auto;
+      padding-left: 15px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+    }
+    .data input {
+      height: 40px;
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: white;
+      margin-left: 10px;
+    }
+    .data input:focus {
+      outline: none;
+    }
+    button {
+      background-color: #00f5d4;
+      height: 40px;
+      width: 90%;
+      margin: 20px auto 10px;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 20px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+      display: block;
+      cursor: pointer;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    #errorMsg {
+      color: #ff4c4c;
+      margin: 10px 0;
+      font-weight: bold;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form id="login" novalidate>
+    <h2 style="color: #00f5d4">Login</h2>
+
+    <div id="errorMsg"></div>
+
+    <div class="data">
+      <i
+        class="fa-regular fa-user"
+        style="color: #00f5d4; width: 30px; border-right: 1px solid #41636d"
+      ></i>
+      <input type="text" placeholder="Username" name="username" required />
+    </div>
+
+    <div class="data">
+      <i
+        class="fa-solid fa-lock"
+        style="color: #00f5d4; width: 30px; border-right: 1px solid #41636d"
+      ></i>
+      <input type="password" placeholder="Password" name="password" required />
+    </div>
+
+    <button type="submit">Login</button>
+
+    <center>
+      <span>Don't have an account?</span>
+      <a href="register.html">Register here</a>
+    </center>
+  </form>
+
+  <script>
+    const form = document.getElementById("login");
+    const errorMsg = document.getElementById("errorMsg");
+
+    function validateUsername(username) {
+      return /^[a-zA-Z0-9_]{4,}$/.test(username);
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      errorMsg.textContent = "";
+
+      const username = form.username.value.trim();
+      const password = form.password.value;
+
+      if (!validateUsername(username)) {
+        errorMsg.textContent =
+          "Username must be at least 4 characters and contain only letters, numbers, or underscores.";
+        return;
+      }
+
+      if (!password) {
+        errorMsg.textContent = "

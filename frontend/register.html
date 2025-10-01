@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Internship Registration</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      background: rgb(27, 28, 28);
+      font-family: Arial, sans-serif;
+    }
+    #signup {
+      width: 500px;
+      margin: 100px auto;
+      border: 10px solid rgb(27, 28, 28);
+      box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1),
+        -5px -5px 10px rgba(255, 255, 255, 0.1) inset, 5px 5px 10px rgba(0, 0, 0, 0.5) inset,
+        5px 5px 10px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      color: white;
+      padding: 20px 0;
+    }
+    .data {
+      height: 50px;
+      width: 400px;
+      background: rgb(27, 28, 28);
+      color: white;
+      border-radius: 50px;
+      box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1), 5px 5px 10px rgba(0, 0, 0, 0.5);
+      line-height: 50px;
+      margin: 20px auto 10px;
+      padding-left: 10px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+    }
+    .data input {
+      height: 40px;
+      width: 330px;
+      background: transparent;
+      border: none;
+      color: white;
+      margin-left: 10px;
+    }
+    .data input:focus {
+      outline: none;
+    }
+    .file-upload {
+      width: 400px;
+      margin: 20px auto;
+      color: white;
+      font-size: 14px;
+    }
+    .file-upload input[type="file"] {
+      width: 100%;
+      margin-top: 10px;
+      color: white;
+    }
+    .message {
+      width: 400px;
+      margin: 5px auto 15px;
+      font-size: 13px;
+      color: #bbbbbb;
+    }
+    button {
+      background-color: #00f5d4;
+      height: 40px;
+      width: 390px;
+      margin: 20px auto;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 20px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+      display: block;
+      cursor: pointer;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    center span {
+      color: #7c8285;
+    }
+    #errorMsg {
+      color: #ff4c4c;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 10px;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form id="signup" enctype="multipart/form-data" novalidate>
+    <center><h2 style="color: #00f5d4;"> Registration Form</h2></center>
+
+    <div class="data">
+      <i
+        class="fa-regular fa-user"
+        style="color: #00f5d4; width: 30px; border-right: 1px solid #41636d"
+      ></i>
+      <input type="text" placeholder="Username" name="username" required />
+    </div>
+
+    <div class="data">
+      <i
+        class="fa-regular fa-user"
+        style="color: #00f5d4; width: 30px; border-right: 1px solid #41636d"
+      ></i>
+      <input type="text" placeholder="Full Name" name="fullname" required />
+    </div>
+
+    <div class="data">
+      <i
+        class="fa-regular fa-envelope"
+        style="color: #00f5d4; width: 30px; border-right: 1px solid #41636d"
+      ></i>
+      <input type="email" placeholder="Email" name="email" required />
+    </div>
+
+    <div class="data">
+      <i
+        class="fa-solid fa-phone"
+        style="color: #00f5d4; width: 30px; border-right: 1px solid #41636d"
+      ></i>
+      <input type="tel" placeholder="Phone Number" name="phone" required />
+    </div>
+
+    <div class="data">
+      <i
+        class="fa-solid fa-lock"
+        style="color: #00f5d4; width: 30px; border-right: 1px solid #41636d"
+      ></i>
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        id="password"
+        required
+      />
+    </div>
+
+    <div class="message">
+      <i class="fa-solid fa-circle-info" style="color: #00f5d4"></i>
+      Password must be at least 8 characters long and include a mix of letters,
+      numbers, and symbols.
+    </div>
+
+    <div class="data">
+      <i
+        class="fa-solid fa-lock"
+        style="color: #00f5d4; width: 30px; border-right: 1px solid #41636d"
+      ></i>
+      <input
+        type="password"
+        placeholder="Confirm Password"
+        name="confirm_password"
+        id="confirm_password"
+        required
+      />
+    </div>
+
+    <div class="file-upload">
+      <label for="resume">Upload Your Resume :</label><br />
+      <input type="file" id="resume" name="resume" required />
+    </div>
+
+    <button type="submit">Register</button>
+
+    <center>
+      <span>Already have an account?</span>
+      <a href="login.html">Login here</a>
+    </center>
+
+    <div id="errorMsg"></div>
+  </form>
+
+  <script>
+    const form = document.getElementById("signup");
+    const errorMsg = document.getElementById("errorMsg");
+
+    function validateUsername(username) {
+      return /^[a-zA-Z0-9_]{4,}$/.test(username); // at least 4 chars, alphanumeric + _
+    }
+
+    function validateFullName(name) {
+      return /^[a-zA-Z\s]+$/.test(name); // letters and spaces only
+    }
+
+    function validatePhone(phone) {
+      return /^\d{10,15}$/.test(phone); // 10-15 digits
+    }
+
+    function validatePassword(password) {
+      // min 8 chars, at least one letter, one number, one special char
+      return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(password);
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      errorMsg.textContent = "";
+
+      const username = form.username.value.trim();
+      const fullname = form.fullname.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const password = form.password.value;
+      const confirmPassword = form.confirm_password.value;
+      const resumeFile = form.resume.files[0];
+
+      if (!validateUsername(username)) {
+        errorMsg.textContent =
+          "Username must be at least 4 characters and contain only letters, numbers, or underscores.";
+        return;
+      }
+
+      if (!validateFullName(fullname)) {
+        errorMsg.textContent =
+          "Full Name can contain only letters and spaces.";
+        return;
+      }
+
+      if (!email) {
+        errorMsg.textContent = "Please enter a valid email.";
+        return;
+      }
+
+      if (!validatePhone(phone)) {
+        errorMsg.textContent =
+          "Phone number must be 10 to 15 digits long with no spaces or symbols.";
+        return;
+      }
+
+      if (!validatePassword(password)) {
+        errorMsg.textContent =
+          "Password must be at least 8 characters and include letters, numbers, and symbols.";
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        errorMsg.textContent = "Passwords do not match.";
+        return;
+      }
+
+      if (!resumeFile) {
+        errorMsg.textContent = "Please upload your resume.";
+        return;
+      }
+
+      // Check if username exists in localStorage
+      let users = JSON.parse(localStorage.getItem("users") || "{}");
+      if (users[username]) {
+        errorMsg.textContent = "Username already taken! Please choose another.";
+        return;
+      }
+
+      // Save user data
+      users[username] = {
+        fullname,
+        email,
+        phone,
+        password,
+        resume: resumeFile.name,
+      };
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("Registration Successful! You can now login.");
+      form.reset();
+      errorMsg.textContent = "";
+    });
+  </script>
+</body>
+</html>

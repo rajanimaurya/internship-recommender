@@ -303,6 +303,7 @@ nav a:hover::after {
     color: var(--text-muted);
 }
 
+
 /* Steps Section */
 .how-it-works {
     padding: 5rem 0;
