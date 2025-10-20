@@ -9,34 +9,34 @@ Simplifies finding the right internship for students.
 Analyzes student resumes and matches them with internship requirements.
 Uses AI and NLP techniques to compare student profiles with internship descriptions and rank the best matches.
 
-Features
+Features :
 Upload resumes and internship descriptions.
 AI-based similarity matching for recommendations.
 Dashboard showing recommended internships.
 Direct links to apply for internships.
 Scalable system suitable for multiple users.
 
-Technologies Used
+Technologies Used :
 Python – Backend programming
 Flask – Web framework
 SQLite – Database for storing user data and internships
 Natural Language Processing (NLP) – Resume and job description analysis
 Frontend – HTML, CSS, JavaScript
 
-System Architecture
+System Architecture :
 Frontend – Users upload resumes and internship data
 Backend – Flask handles requests and processing
 NLP Engine – Compares resumes with internship descriptions using similarity algorithms (cosine similarity)
 Database – Stores student profiles, internships, and recommendation results
 Recommendation Module – Generates top internship suggestions for each student
 
-Installation
+Installation :
 Clone the repository: git clone https://github.com/username/internship-recommender.git
 Install dependencies: pip install -r requirements.txt
 Run the Flask app: python app.py
 Open http://localhost:5000 in your browser
 
-Usage
+Usage :
 Upload your resume (PDF or DOCX)
 Browse available internships
 View recommended internships ranked by suitability
